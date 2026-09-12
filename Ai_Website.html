@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar & Hero</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navbar styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 1rem 2rem;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f4f4f4;
+        }
+
+        /* Mobile menu styles */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            background: black no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+            }
+
+            nav ul li {
+                margin: 1.5rem 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">MyWebsite</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul id="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <h1>Welcome to MyWebsite</h1>
+        <p>Discover amazing content and stay inspired. Join us today!</p>
+    </section>
+    <script>
+        // JavaScript for mobile menu toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
